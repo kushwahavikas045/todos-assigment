@@ -13,7 +13,7 @@ const AppSelect = ({ setFilter, todos }) => {
             })
             setFilter(sort);
         }
-        if (value === 'by_date') {
+        if (value === 'task_id') {
 
         }
     };
@@ -27,7 +27,7 @@ const AppSelect = ({ setFilter, todos }) => {
             filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
         >
             <Option value="Task_Name">Task Name [A-Z]</Option>
-            <Option value="by_date">By Date</Option>
+            <Option value="task_id">TaskId</Option>
 
         </Select>
     )

@@ -2,7 +2,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import IconButton from './components/Button';
 import './App.css';
 import { Divider, Typography } from 'antd';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import AppModal from './components/AppModal';
 import Create from './components/Create';
 import {initialTodos} from './Todos';
@@ -12,12 +12,18 @@ const { Title } = Typography;
 function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const[todos, setTodos] = useState(initialTodos);
+  const input = useRef();
+
+  useEffect(()=>{
+    handleNewTodo();
+  },[])
   //open modal
   function handleNewTodo(){
     setIsModalVisible(true);
+    input.current.focus();
   }
 
-  return (
+  regitturn (
     <div className="container">
     <Typography>
     <Title>Todo App</Title>
@@ -27,7 +33,7 @@ function App() {
      {/* modal */}
      <AppModal visible={isModalVisible} title="Create todo" onCancel={() => setIsModalVisible(false)}>
       {/* create todo form */}
-      <Create handleModal = {setIsModalVisible} setTodos={setTodos} todos={todos}/>
+      <Create handleModal = {setIsModalVisible} setTodos={setTodos} todos={todos} ref={input}/>
      </AppModal>
      {/* todos list */}
      <Lists todos = {todos} setTodos={setTodos}/>
