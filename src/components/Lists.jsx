@@ -65,7 +65,7 @@ const Lists = ({ todos, setTodos }) => {
             }
           />
           <div>
-            {item.in_progress && <Tag icon={<SyncOutlined spin />} color="processing"> In progress update</Tag>}
+            {item.in_progress && <Tag icon={<SyncOutlined spin />} color="processing"> In progress updates</Tag>}
             {item.is_completed && <Tag icon={<CheckCircleOutlined />} color="success"> completed</Tag>}
 
           </div>
